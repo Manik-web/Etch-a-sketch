@@ -8,3 +8,20 @@
 #container div{
     border:1pt black solid;
 }
+
+#container div:hover{
+    background:lightgoldenrodyellow;
+}
+    
+.on{
+    background:black;
+}
+button{
+    display:flex;
+    width:100px;
+    margin:auto;
+    justify-content:center;
+}
+#buttonContainer{
+    width:800px;
+}
