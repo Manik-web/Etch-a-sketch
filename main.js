@@ -30,15 +30,12 @@ let makeGrid =(width)=>{
       });
 
 }
-makeGrid(10);
+makeGrid(4);
 
 
 
 let reset = () =>{
-    var e = document.getElementsByClassName('grid');
-    for(j=0;j<e.length;j++){
-        e[j].style.background = 'white';
-    }
+    container.innerHTML = '';
     let size= prompt('please enter the desired width (MAX is 64)');
     makeGrid(size);
 }
