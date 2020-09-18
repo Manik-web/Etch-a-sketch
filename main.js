@@ -22,11 +22,14 @@ let makeGrid =(width)=>{
 makeGrid(4);
 
 
-turnOn =(event)=>{
-    if(event.target.style.background==='lightgrey'){
-        event.target.style.background = 'white';
-    }else{
-        event.target.style.background='lightgrey';
+
+let reset = () =>{
+    var e = document.getElementsByClassName('grid');
+    for(j=0;j<e.length;j++){
+        e[j].style.background = 'white';
     }
 }
+
+let button = document.getElementById("button");
+button.addEventListener('click',reset);
 
