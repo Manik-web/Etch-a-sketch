@@ -1,30 +1,40 @@
+body{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    background:rgb(235, 36, 79);
+    justify-content:space-around;
 
+}
 
 #container{
-    height:900px;
-    width:900px;
+    padding-top:50px;
+    height:800px;
+    width:800px;
     display:grid;
-    grid-template-columns: repeat(var(--rowNum), var(--rowWidth));
-    grid-template-rows:repeat(var(--rowNum), var(--rowWidth));
 }
+#title{
+    order:1;
+    color:yellow;
+    font-family: 'Snell Roundhand Script';
+   
+    font-size:2rem;
+}
+
 #container div{
     border:1px solid black;
 }
 
-#container div:hover{
-    background:lightgoldenrodyellow;
-}
-    
-.on{
-    background:black;
-}
 button{
-    display:flex;
-    width:100px;
+    width:150px;
     margin:auto;
     justify-content:center;
+    margin-top:160px;
+    font-size:1rem;
     background-color: -internal-light-dark(rgb(239, 239, 239), rgb(74, 74, 74));
 }
 #buttonContainer{
-    width:1000px;
+    display:flex;
+    flex-direction:column-reverse;
+    align-self:flex-start;
 }
