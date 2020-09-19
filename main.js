@@ -1,43 +1,38 @@
 console.log('hi');
 let container = document.querySelector('#container');
-let htmlStyles = window.getComputedStyle(document.querySelector("html"));
-let rowNum = parseInt(htmlStyles.getPropertyValue("--rowNum"));
-let rowWidth = parseInt(htmlStyles.getPropertyValue("--rowWidth"));
-let fullWidth = 800;
 
-
+//function called on mouseover
 turnOn =(event)=>{
-    if(event.target.style.background==='lightgrey'){
-        event.target.style.background = 'white';
-    }else{
         event.target.style.background='lightgrey';
-    }
+    
 }
-
+//make a grid initial and after prompt
 let makeGrid =(width)=>{
-    rowWidth = 1000/width;
+    rowWidth = 900/width;
     container.innerHTML = '';
-    container.style.display = 'grid';
-    document.documentElement.style.setProperty("--rowNum", width);
-    document.documentElement.style.setProperty("--rowWidth", rowWidth+'px');
+    container.style.gridTemplateColumns = "repeat(" + width + ", 1fr)";
+    container.style.gridTemplateRows = "repeat(" + width + ", 1fr)";
     let number = width*width;
     for (i=0;i<number;i++){
-        container.innerHTML +='<div class="grid" id="grid'+(i+1)+'"></div';
+        const grid = document.createElement('div');
+        grid.classList.add('blank');
+        grid.setAttribute('id',i);
+        grid.addEventListener('mouseover',turnOn);
+        container.appendChild(grid);
     }
-    var elements = document.getElementsByClassName('grid');
-    Array.from(elements).forEach(function(element) {
-        element.addEventListener('mouseover', turnOn);
-      });
-
+   
 }
 makeGrid(4);
 
 
-
+//function called on button press
 let reset = () =>{
     container.innerHTML = '';
     let size= prompt('please enter the desired width (MAX is 64)');
-    makeGrid(size);
+    if(size>0 &&size<65){
+        makeGrid(size);
+    }else{alert('click reset and try again')}
+    
 }
 
 let button = document.getElementById("button");

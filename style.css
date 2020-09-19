@@ -1,11 +1,14 @@
 
 
 #container{
+    height:900px;
+    width:900px;
+    display:grid;
     grid-template-columns: repeat(var(--rowNum), var(--rowWidth));
     grid-template-rows:repeat(var(--rowNum), var(--rowWidth));
 }
 #container div{
-    border:1pt black solid;
+    border:1px solid black;
 }
 
 #container div:hover{
@@ -23,5 +26,5 @@ button{
     background-color: -internal-light-dark(rgb(239, 239, 239), rgb(74, 74, 74));
 }
 #buttonContainer{
-    width:800px;
+    width:1000px;
 }
