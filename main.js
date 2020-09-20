@@ -10,13 +10,19 @@ let menu = document.getElementById('buttonContainer');
 let random = document.createElement('button');
 random.setAttribute('id','random');
 random.innerHTML = 'Set random colours';
+let randomStatus = false;
 
 menu.append(title);
 menu.append(random);
 
 //function called on mouseover
 turnOn =(event)=>{
+    if(randomStatus){
+        event.target.style.background = getRandomColor();
+    }else{
         event.target.style.background='lightgrey';
+
+    }
     
 }
 //make a grid initial and after prompt
@@ -48,8 +54,24 @@ let reset = () =>{
     }else{alert('click "Change Grid Size" and try again')}
     
 }
-let randomCol = ()=>{
-    console.log('random worked');
+//generates a random colour when called
+function getRandomColor() {
+    var characters = "0123456789ABCDEF";
+    var color = '#';
+  
+    for (var i = 0; i < 6; i++) {
+      color += characters[Math.floor(Math.random()*15)];
+    }
+    
+    return color;
+  }
+//triggered on button press
+let randomCol = (event)=>{
+    if(randomStatus){
+        randomStatus = false;
+    }else{
+        randomStatus = true;
+    }
 }
 
 let button = document.getElementById("button");
